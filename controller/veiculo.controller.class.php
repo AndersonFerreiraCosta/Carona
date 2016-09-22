@@ -1,0 +1,35 @@
+<?php
+
+/*
+* 	Descrição do Arquivo
+* 	@autor - 
+* 	@data de criação - 
+* 	@arquivo - 
+*/
+
+//Inclui a classe genérica CRUD
+require_once("../functions/crud.class.php");
+
+class VeiculoController extends Crud {
+
+//Método construtor
+
+public function __construct() {
+
+//Passa como parâmetro a tabela
+
+    parent::__construct("veiculo");
+
+}
+
+public function lista(){
+
+	return $this->execute_query("SELECT * FROM veiculo ;");
+
+}
+
+
+
+}
+
+?>
