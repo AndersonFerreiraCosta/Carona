@@ -110,13 +110,17 @@ if (isset ( $_POST ['submit'] )) {
 	
 	
 	<?php 
+ 
 	
-$campus = $_POST ['campus'];
+	if (isset ( $_POST ['submit2'] )  ) {
+		print_r ($_POST ['submit2']); die;
+		
+    $campus = $_POST ['campus'];
 	$data = $_POST ['data'];
 	$periodo = $_POST ['periodo'];
 	
 	$carona->setData($data);
-	//$carona->setIdCampus($Ccontroller->idCampus($campus));
+	$carona->setIdCampus($Ccontroller->idCampus($campus));
 	$carona->setPeriodo($periodo);
 	
 	if ($Ccontroller->save ( $carona )) {
@@ -125,15 +129,12 @@ $campus = $_POST ['campus'];
 	} else {
 		echo "falha na carona";
 	}
+	}
 	
+	
+	
+
 	?>
-
-	
-		
-
-	
-
-		
 	
 <body>
 	<div id="fh5co-wrapper">
@@ -189,6 +190,7 @@ $campus = $_POST ['campus'];
 								<div class="col-md-6">
 									<div class="form-group">
 										<select class="form-control" name="campus" id="campus">
+										
 											<option value="" disabled selected>Selecione o Campus</option>
 											<option value="Campus I">Campus I</option>
 											<option value="Campus II">Campus II</option>
@@ -215,8 +217,7 @@ $campus = $_POST ['campus'];
 							
 
 							<div class="form-group">
-								<input type="submit" value="Criar Carona"
-									class="btn btn-primary">
+								<input type="submit" name="submit2" value="Criar Carona" class="btn btn-primary">
 									
 
 							</div>
